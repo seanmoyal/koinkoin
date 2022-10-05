@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="test">
+    <div class="profil_titre">
+        Profil Joueur
+    </div>
+    <div class="profil_box">
+        <div>
+            <h2>{{joueur.username}}</h2>
+            <h2>{{joueur.points}} pts</h2>
+        </div>
+        <div><h2>#{{joueur.rank}}</h2></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CoinCoin ligue</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+<div class="tout">
+
+{% if user.is_authenticated %}
+<div >
+    <a href="{% url 'page-profil' %}">
+        <div class="big_box">
+        <h1 >CoinCoin Ligue</h1>
+        </div>
+    </a>
+</div>
+<div class="header">
+    <a class="menu" href="{% url 'ranking' %}"><div class="box">Ranking</div></a>
+
+    <a class="menu" href="{% url 'matchs' %}"><div class="box">Matchs</div></a>
+
+    <a class="menu" href="{% url 'reglementation' %}"><div class="box">Règles du CoinCoin</div></a>
+    <a class="menu" href="{% url 'logout' %}"><div class="box">Deconnexion</div></a>
+</div>
+
+{% else %}
+    <div>
+    <div class="big_box">
+    <h1>CoinCoin Ligue</h1>
+</div>
+    <div class="header">
+        <a class="menu" href="{% url 'login' %}"><div class="box">Connexion</div></a>
+        <a class ="menu" href="{% url 'signup' %}"><div class="box">Inscription</div></a>
+    </div>
+    </div>
+{% endif %}
+
+
+<div>
+{% block content %}
+{% endblock %}
+</div>
+</div>
+</body>
+</html>

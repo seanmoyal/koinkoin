@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Creation d'une team</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  <p>
+    <label for="teamname">Nom de team</label>
+    <input id="teamname" type="text" name="teamname">
+  </p>
+  <p>
+    <label for="affiliation">Perso 2</label>
+    <input id="affiliation" type="text" name="affiliation">
+  </p>
+  <button type="submit">Création</button>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Règles du CoinCoin</h1>
+<h2>Règles générales :</h2>
+<p>
+    -Le coincoin se joue en 2V2 chaque équipe positionne ses deux bouteilles de la manière qu'elle veut sur son côté de la table
+    -Il y a 2 rôles : attaque et défense :
+        L'équipe qui attaque choisit un joueur pour lancer la balle de ping pong vers les bouteilles adverses, si la balle touche l'un des deux bouteilles,
+        Le partenaire du lanceur boit sa bière jusqu'à que l'équipe qui défende ramène la balle au centre et pose la balle sur la bouteille vide au centre de la table
+        Si le lanceur ne reussit pas à toucher une des bouteilles adverses rien ne se passe et l'équipe qui défendait devient l'équipe attaquante
+    - a chaque fois qu'une équipe attaque, le lanceur est celui qui buvait à l'attaque précédente
+
+</p>
+<h2>Règles annexes : </h2>
+<p>
+    - L'équipe qui attaque arrête de boire au stop de l'adversaire : pour dire stop il faut que la balle soit ramenée au centre et tienne en équilibre sur la bouteille sans aide extérieure
+    - Si le buveur finit sa bière, il peut continuer celle de son coéquipier tant que l'équipe qui défend n'a pas dit stop
+    -une bière est finie s'il ne reste plus ( ou vraiment très peu ) de bière dans sa bouteille après avoir attendu quelques secondes que la mousse redevienne de la biere
+    -petit ponts : si le lanceur de balle parvient à mettre un petit pont (face avant) avec la balle à un adversaire, celui-ci doit cul sec sa bière et aller en chercher une autre pour continuer à joueur
+    - Le coude : le coude du lanceur doit être à tout moment derrière la table de coincoin ( si lors de son lancer le coude est au dessus de la table, le lancer n'est pas valide et il recommence son lancer )
+    -si le lanceur percute une bouteille adverse avec la balle et que la bouteille tombe : l'équipe attaquante peut déscendre sa propre biere de sorte à rééquilibrer
+
+</p>
+{% endblock %}

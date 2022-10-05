@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Demandes de Match en Attente</h1>
+{% for demande in demandes %}
+{% if demande.demandeur == team.nom_team %}
+    <p>  Vous avez défié {{demande.demandé}} à un match</p>
+        <p>
+        <a href="{% url 'annuler-demande-match' demande.demandeur %}">Annuler</a>
+        </p>
+{% endif %}
+{% endfor %}
+<h1>Demandes de Match</h1>
+{% for demande in demandes %}
+{% if demande.demandé == team.nom_team %}
+    <p> {{demande.demandeur}} vous défie dans un match</p>
+        <p>
+        <a href="{% url 'accepter-demande-match' demande.demandeur %}">Accepter</a>
+        </p>
+    <p>
+     <a href="{% url 'refuser-demande-match' demande.demandeur %}">Refuser</a>
+    </p>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

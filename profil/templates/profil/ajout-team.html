@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Demandes de Team en Attente</h1>
+{% for demande in demandes %}
+{% if demande.demandeur == user.username %}
+    <p>  Vous avez invité {{demande.demandé}} à rejoindre la Team {{demande.nom_team}}</p>
+        <p>
+        <a href="{% url 'annule-team-request' demande.nom_team %}">Annuler</a>
+        </p>
+{% endif %}
+{% endfor %}
+<h1>Demandes de Team</h1>
+{% for demande in demandes %}
+{% if demande.demandé == user.username %}
+    <p> {{demande.demandeur}} vous invite à rejoindre la Team {{demande.nom_team}}</p>
+        <p>
+        <a href="{% url 'accept-team-request' demande.nom_team %}">Accepter</a>
+        </p>
+    <form action="RefuseInvite" method="POST">
+    <p>
+     <a href="{% url 'refuse-team-request' demande.nom_team %}">Refuser</a>
+    </p>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

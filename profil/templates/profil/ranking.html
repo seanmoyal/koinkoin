@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Ranking</h1>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label for="recherche">Chercher un joueur</label>
+        <input id="recherche" type="text" name="recherche">
+    </p>
+  <button type="submit">Rechercher</button>
+</form>
+{% for joueur in joueurs %}
+<h2>{{joueur.username}} : rang : #{{joueur.rank}}</h2>
+
+<p>{{joueur.points}} Points</p>
+{% endfor %}
+
+{% endblock %}

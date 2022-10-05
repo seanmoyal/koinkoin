@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="test">
+    <div class="profil_titre">
+        Profil Perso
+    </div>
+    <div class="profil_box">
+        <div>
+            <h2>{{user.username}}</h2>
+            <h2>{{user.points}} pts</h2>
+        </div>
+        <div><h2>#{{user.rank}}</h2></div>
+    </div>
+</div>
+
+
+
+
+{% if user.has_team %}
+{% for team in teams %}
+<div class="test">
+    <div class="profil_titre">
+        Infos Team
+    </div>
+    <div class="team_box">
+        <div class="team_info">
+            <h2 style="margin-right : 20px;">{{team.nom_team}}</h2>
+            <h2>{{team.points}} pts</h2>
+        </div>
+
+        <div class="team_info">
+            <h2 style="margin-right : 20px;">{{team.joueur1}} </h2>
+            <h2>{{team.joueur2}}</h2>
+        </div>
+    </div>
+</div>
+<div>
+    <a href="{% url 'quitter-team' %}"> Quitter la team</a>
+</div>
+
+{% endfor %}
+{% else %}
+<div class="test">
+<div class="profil_titre">
+    Aucune Team
+</div>
+<div>
+    <p>
+        <a href="{% url 'creer-team' %}">Créer sa team</a>
+    </p>
+    <p>
+        <a href="{% url 'ajout-team' %}">Demandes de team</a>
+    </p>
+</div></div>
+{% endif %}
+
+{% endblock %}

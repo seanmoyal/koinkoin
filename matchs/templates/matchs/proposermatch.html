@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>proposer un match : </h2>
+
+<form method="POST">
+  {% csrf_token %}
+  <p>
+    <label for="teamname">Nom de team à affronter</label>
+    <input id="teamname" type="text" name="teamname">
+  </p>
+  <button type="submit">Création</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Matchs</h1>
+{% if user.has_team %}
+<h2>Match Request : </h2>
+    <p><a href="{% url 'proposer-match' %}">proposer un match</a></p>
+    <p><a href="{% url 'demandes-match' %}">demandes de match en cours</a></p>
+
+<h2>Match en Cours : </h2>
+{% for match in match_en_cours %}
+
+<p>{{match.team1}} vs {{match.team2}}</p>
+{% if match.team1 == team_user.nom_team %}
+    <p>Equipe victorieuse : </p>
+    <p><a href="{% url 'victoire-team1' match.team1  %}">{{match.team1}}</a></p>
+    <p><a href="{% url 'victoire-team2' match.team2  %}">{{match.team2}}</a></p>
+{% else %}
+{% if match.victoire != "" %}
+    <p> Votre adversaire dit que l'équipe victorieuse est :</p>
+    <p>{{match.victoire}}</p>
+    <p><a href="{% url 'confirmer-victoire' match.victoire  %}">Confirmer</a></p>
+    <p><a href="{% url 'contester-victoire' match.victoire  %}">Contester</a></p>
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endif %}
+<h2>Matchs Passés : </h2>
+{% for match in matchs_passes %}
+<p>equipe victorieuse : {{match.victoire}} : {{match.joueur_victorieux1}} et {{match.joueur_victorieux1}} +{{match.pts_gagnants}} pts</p>
+<p>equipe defaite : {{match.defaite}} : {{match.joueur_defait1}} et {{match.joueur_defait2}} {{match.pts_defaits}} pts</p>
+<p>date : {{match.date}}</p>
+{% endfor %}
+
+{% endblock %}
